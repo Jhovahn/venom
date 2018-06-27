@@ -11,6 +11,7 @@ const initialStateCount = {
 };
 
 export const reducer = (state = initialStateCount, action = {}) => {
+  console.log(('state', state));
   switch (action.type) {
     case INCREMENT:
       return Object.assign({}, state, { count: state.count + 1 });

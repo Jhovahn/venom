@@ -21,18 +21,31 @@ const mapDispatchToProps = dispatch => {
 };
 
 class App extends Component {
+  componentDidMount() {
+    return this.props.inc;
+  }
+
+  getRobots = () => {
+    return this.props.rec.map(
+      <ul>
+        robot => <li>robot.name</li>
+      </ul>
+    );
+  };
+
   render() {
     return (
       <div className="body">
         {console.log(this.props)}
         <div className="container">
-          <h3>Counter</h3>
+          <h3>Count React / Redux</h3>
           <button onClick={this.props.dec}>-</button>
           <span className="count">{this.props.count}</span>
           <button onClick={this.props.inc}>+</button>
-          <button onClick={this.props.rec}>See what happens</button>
-          {console.log(this.props.robots)}
-          <div />
+          <br />
+          <br />
+          <button onClick={this.getRobots}>Robots</button>
+          <div>{this.getRobots}</div>
         </div>
       </div>
     );
